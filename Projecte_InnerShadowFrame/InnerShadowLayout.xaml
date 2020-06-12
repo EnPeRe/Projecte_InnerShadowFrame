@@ -9,7 +9,7 @@
   <ContentView.Content>
         <skia:SKCanvasView x:Name="ShadowCanvas"
                            PaintSurface="OnCanvasViewPaintSurface"
-                           VerticalOptions="CenterAndExpand"
-                           HorizontalOptions="CenterAndExpand" />
+                           VerticalOptions="Fill"
+                           HorizontalOptions="Fill" />
     </ContentView.Content>
 </ContentView>

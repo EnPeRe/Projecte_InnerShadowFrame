@@ -12,16 +12,6 @@ namespace Projecte_InnerShadowFrame
     {
         #region .: Properties :.
 
-        private SKColor shadowColor = Color.FromHex("#3A87D3").ToSKColor();
-        private SKColor boxColor = Color.FromHex("#1C68AF").ToSKColor();
-        private SKColor checkedColor = Color.FromHex("#F2CB3F").ToSKColor();
-
-        public Double CanvasSize
-        {
-            get => (Double)GetValue(CanvasSizeProperty);
-            set => SetValue(CanvasSizeProperty, value);
-        }
-
         public bool HasInnerShadow
         {
             get { return (bool)GetValue(HasInnerShadowProperty); }
@@ -43,9 +33,6 @@ namespace Projecte_InnerShadowFrame
         #endregion
 
         #region .: Bindable Properties :.
-
-        public static readonly BindableProperty CanvasSizeProperty =
-            BindableProperty.Create(propertyName: nameof(CanvasSize), returnType: typeof(Double), declaringType: typeof(InnerShadowLayout));
 
         public static readonly BindableProperty HasInnerShadowProperty =
             BindableProperty.Create(nameof(HasInnerShadow), typeof(bool), typeof(InnerShadowLayout), false);
@@ -81,7 +68,6 @@ namespace Projecte_InnerShadowFrame
             switch (propertyName)
             {
                 case nameof(HasInnerShadow):
-                case nameof(CanvasSize):
                 case nameof(Height):
                 case nameof(Width):
                 case nameof(ShadowRatio):
@@ -90,15 +76,6 @@ namespace Projecte_InnerShadowFrame
                     break;
             }
         }
-
-        //private static void OnCanvasSizeChanged(BindableObject bindable, object oldValue, object newValue)
-        //{
-        //    if (bindable is InnerShadowLayout typedBindable && newValue is Double typedValue)
-        //    {
-        //        typedBindable.ShadowCanvas.HeightRequest = typedValue;
-        //        typedBindable.ShadowCanvas.WidthRequest = typedValue;
-        //    }
-        //}
 
         #endregion
 
@@ -117,7 +94,7 @@ namespace Projecte_InnerShadowFrame
             SKPaint paint = new SKPaint
             {
                 Style = SKPaintStyle.Stroke,
-                Color = this.BackgroundColor.ToSKColor(),
+                Color = Color.DeepSkyBlue.ToSKColor(),
                 StrokeWidth = height
             };
             canvas.DrawRect(0, 0, width, height, paint);
@@ -133,10 +110,10 @@ namespace Projecte_InnerShadowFrame
             {
                 Style = SKPaintStyle.Stroke,
                 Color = Color.Firebrick.ToSKColor(),
-                StrokeWidth = innerHeight,
+                //StrokeWidth = height-50,
                 MaskFilter = SKMaskFilter.CreateBlur(SKBlurStyle.Normal, ShadowMaskSigma)
             };
-            canvas.DrawRect(innerY, innerX, innerWidth, innerHeight, innerPaint);
+            canvas.DrawRect(10, 10, width-20, height-20, innerPaint);
         }
 
         #endregion
