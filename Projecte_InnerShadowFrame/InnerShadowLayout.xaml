@@ -8,8 +8,6 @@
              x:Class="Projecte_InnerShadowFrame.InnerShadowLayout">
   <ContentView.Content>
         <skia:SKCanvasView x:Name="ShadowCanvas"
-                           PaintSurface="OnCanvasViewPaintSurface"
-                           VerticalOptions="Fill"
-                           HorizontalOptions="Fill" />
+                           PaintSurface="OnCanvasViewPaintSurface"/>
     </ContentView.Content>
 </ContentView>
