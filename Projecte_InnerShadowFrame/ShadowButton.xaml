@@ -9,17 +9,13 @@
   <ContentView.Content>
         <Grid>
             <projecte_innershadowframe:InnerShadowLayout
-                BackgroundColor="#2E249E"
-                ShadowSize="7"
-                ShadowMaskSigma="7.0"
+                x:Name="ShadowLayoutElement"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand"/>
             <Button 
                 x:Name="ButtonElement"
-                Text="Dracs" 
                 BackgroundColor="Transparent"
                 Margin="0" 
-                TextColor="GhostWhite"
                 Pressed="Button_Pressed"
                 Released="ButtonElement_Released"/>
         </Grid>

@@ -69,10 +69,37 @@
                 HasShadow="False"
                 Padding="0">
                 <projecte_innershadowframe:ShadowButton
+                    ShadowSize="7"
+                    ShadowMargin="7.0"
+                    Text="DRACSS"
+                    TextColor="GhostWhite"
+                    BackgroundColor="#2E249E"
+                    PressedColor="#333EBD"
                     Padding="0"/>
             </Frame>
         </Frame>
 
+        <Frame
+            Margin="2"
+            CornerRadius="10"
+            BackgroundColor="#333EBD"
+            Padding="0">
+            <Frame
+                Margin="6"
+                CornerRadius="7"
+                HasShadow="False"
+                Padding="0">
+                <projecte_innershadowframe:ShadowButton
+                    ShadowSize="7"
+                    ShadowMargin="7.0"
+                    Text="DRACS"
+                    TextColor="GhostWhite"
+                    BackgroundColor="#333EB1"
+                    PressedColor="#333EC1"
+                    Padding="0"/>
+            </Frame>
+        </Frame>
+        
         <Frame
             Margin="2"
             CornerRadius="10"
