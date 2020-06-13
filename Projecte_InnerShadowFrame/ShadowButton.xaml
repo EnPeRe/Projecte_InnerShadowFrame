@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:projecte_innershadowframe="clr-namespace:Projecte_InnerShadowFrame"
+             mc:Ignorable="d"
+             x:Class="Projecte_InnerShadowFrame.ShadowButton">
+  <ContentView.Content>
+        <Grid>
+            <projecte_innershadowframe:InnerShadowLayout
+                BackgroundColor="#2E249E"
+                ShadowSize="7"
+                ShadowMaskSigma="7.0"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"/>
+            <Button 
+                x:Name="ButtonElement"
+                Text="Dracs" 
+                BackgroundColor="Transparent"
+                Margin="0" 
+                TextColor="GhostWhite"
+                Pressed="Button_Pressed"
+                Released="ButtonElement_Released"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
