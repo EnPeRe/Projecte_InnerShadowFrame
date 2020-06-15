@@ -11,11 +11,13 @@
             <projecte_innershadowframe:InnerShadowLayout
                 x:Name="ShadowLayoutElement"
                 HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand"/>
+                VerticalOptions="FillAndExpand"
+                Padding="0"/>
             <Button 
                 x:Name="ButtonElement"
                 BackgroundColor="Transparent"
                 Margin="0" 
+                Padding="0"
                 Pressed="Button_Pressed"
                 Released="ButtonElement_Released"/>
         </Grid>

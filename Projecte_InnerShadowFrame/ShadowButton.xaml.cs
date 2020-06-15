@@ -31,6 +31,12 @@ namespace Projecte_InnerShadowFrame
             set { SetValue(CommandParameterProperty, value); }
         }
 
+        public double FontSize
+        {
+            get { return (double)GetValue(FontSizeProperty); }
+            set { SetValue(FontSizeProperty, value); }
+        }
+
         public Color PressedColor
         {
             get { return (Color)GetValue(PressedColorProperty); }
@@ -66,7 +72,7 @@ namespace Projecte_InnerShadowFrame
         #region .: Bindable Properties :.
 
         public static readonly new BindableProperty BackgroundColorProperty =
-            BindableProperty.Create(nameof(BackgroundColor), typeof(Color), typeof(InnerShadowLayout), Color.White,
+            BindableProperty.Create(nameof(BackgroundColor), typeof(Color), typeof(InnerShadowLayout), null,
                 propertyChanged: OnBackgroundColorPropertyChanged);
 
         public static readonly BindableProperty CommandProperty =
@@ -77,16 +83,20 @@ namespace Projecte_InnerShadowFrame
             BindableProperty.Create(nameof(CommandParameter), typeof(object), typeof(InnerShadowLayout), null,
                 propertyChanged: OnCommandParameterPropertyChanged);
 
+        public static readonly BindableProperty FontSizeProperty =
+           BindableProperty.Create(nameof(FontSize), typeof(double), typeof(InnerShadowLayout), 0.0,
+               propertyChanged: OnFontSizePropertyChanged);
+
         public static readonly BindableProperty PressedColorProperty =
-            BindableProperty.Create(nameof(PressedColor), typeof(Color), typeof(InnerShadowLayout), Color.White,
+            BindableProperty.Create(nameof(PressedColor), typeof(Color), typeof(InnerShadowLayout), null,
                 propertyChanged: OnPressedColorPropertyChanged);
 
         public static readonly BindableProperty ShadowSizeProperty =
-            BindableProperty.Create(nameof(ShadowSize), typeof(float), typeof(InnerShadowLayout), 10.0f,
+            BindableProperty.Create(nameof(ShadowSize), typeof(float), typeof(InnerShadowLayout), 0.0f,
                 propertyChanged: OnShadowSizePropertyChanged);
 
         public static readonly BindableProperty ShadowMarginProperty =
-            BindableProperty.Create(nameof(ShadowMargin), typeof(float), typeof(InnerShadowLayout), 10.0f,
+            BindableProperty.Create(nameof(ShadowMargin), typeof(float), typeof(InnerShadowLayout), 0.0f,
                 propertyChanged: OnShadowMarginPropertyChanged);
 
         public static readonly BindableProperty TextProperty =
@@ -94,7 +104,7 @@ namespace Projecte_InnerShadowFrame
                 propertyChanged: OnTextPropertyChanged);
 
         public static readonly BindableProperty TextColorProperty =
-            BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(InnerShadowLayout), Color.Black,
+            BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(InnerShadowLayout), null,
                 propertyChanged: OnTextColorPropertyChanged);
 
         #endregion
@@ -104,7 +114,7 @@ namespace Projecte_InnerShadowFrame
         private static void OnBackgroundColorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
             var control = (ShadowButton)bindable;
-            if(newValue is Color color)
+            if (newValue is Color color)
             {
                 control.ShadowLayoutElement.BackgroundColor = color;
             }
@@ -125,6 +135,15 @@ namespace Projecte_InnerShadowFrame
             if (newValue is object commandParameter)
             {
                 control.ButtonElement.CommandParameter = commandParameter;
+            }
+        }
+
+        private static void OnFontSizePropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var control = (ShadowButton)bindable;
+            if (newValue is double fontSize)
+            {
+                control.ButtonElement.FontSize = fontSize;
             }
         }
 
